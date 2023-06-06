@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from 'src/App';
 import Home from 'src/pages/Home';
-import { Error } from './Error';
+import { Error } from '../Error';
 
 const router = createBrowserRouter([
     {
