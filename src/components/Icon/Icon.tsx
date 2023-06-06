@@ -1,5 +1,5 @@
 import { IconProps as ChakraIconProps } from '@chakra-ui/react';
-import { Arrow, Bell, Bolt, ChevronArrow, Dollar, Eye, Star, Tag, Wallet, X } from '../icons';
+import { Arrow, Bell, Bolt, ChevronArrow, Dollar, Eye, Star, Tag, Wallet, X } from './icons';
 
 const icons = {
     arrow: Arrow,

@@ -1,4 +1,4 @@
 export const fonts = {
-    playfairDisplay: `'Playfair Display', sans-serif`,
-    montserrat: `'Montserrat', sans-serif`,
+    playfairDisplay: `'Playfair Display Variable', sans-serif`,
+    montserrat: `'Montserrat Variable', sans-serif`,
 };

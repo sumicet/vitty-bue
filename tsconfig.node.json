@@ -7,7 +7,13 @@
         "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": ["src/*"]
+            "@/components": ["src/components"],
+            "@/hooks": ["src/hooks"],
+            "@/theme": ["src/theme"],
+            "@/utils": ["src/utils"],
+            "@/types": ["src/types"],
+            "@/layout": ["src/layout"],
+            "@/pages": ["src/pages"]
         }
     },
     "include": ["vite.config.ts"]

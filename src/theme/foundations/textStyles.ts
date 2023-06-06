@@ -6,6 +6,13 @@ export const textStyles = {
         fontSize: '64px',
         lineHeight: '85px',
     },
+    displaySmall: {
+        fontFamily: 'playfairDisplay',
+        fontStyle: 'normal',
+        fontWeight: 900,
+        fontSize: '36px',
+        lineHeight: '44px',
+    },
     h1: {
         fontFamily: 'montserrat',
         fontStyle: 'normal',
@@ -48,10 +55,24 @@ export const textStyles = {
         fontSize: '16px',
         lineHeight: '20px',
     },
+    body1Bold: {
+        fontFamily: 'montserrat',
+        fontStyle: 'normal',
+        fontWeight: 700,
+        fontSize: '16px',
+        lineHeight: '20px',
+    },
     body2: {
         fontFamily: 'montserrat',
         fontStyle: 'normal',
         fontWeight: 500,
+        fontSize: '12px',
+        lineHeight: '15px',
+    },
+    body2Bold: {
+        fontFamily: 'montserrat',
+        fontStyle: 'normal',
+        fontWeight: 700,
         fontSize: '12px',
         lineHeight: '15px',
     },
