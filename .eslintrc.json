@@ -15,7 +15,8 @@
     },
     "plugins": ["react-refresh", "prettier"],
     "rules": {
-        "react-refresh/only-export-components": "warn"
+        "react-refresh/only-export-components": "warn",
+        "@typescript-eslint/ban-ts-comment": "warn"
     },
     "settings": {
         "import/parsers": {

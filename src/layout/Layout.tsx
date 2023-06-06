@@ -21,11 +21,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     spacing={{ base: 'space40', sm: 'space80' }}
                     boxSize="100%"
                     position="relative"
+                    // TODO: measure screen and add height here
                     minHeight="calc(100vh - 120px)"
                 >
                     <Header />
                     <Center boxSize="100%" paddingX={{ base: 'space16', sm: 'space30' }}>
-                        {/* measure screen and add minHeight here */}
                         <Flex maxWidth="container.maxWidth" boxSize="100%">
                             {children}
                         </Flex>

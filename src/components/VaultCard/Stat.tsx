@@ -2,6 +2,7 @@ import { Divider, Flex, Text, VStack, useColorModeValue } from '@chakra-ui/react
 
 export function Stat({ name, value }: { name: string; value: string }) {
     const color = useColorModeValue('tertiaryLight', 'tertiaryDark');
+
     return (
         <Flex justifyContent="space-between" width="100%">
             <VStack spacing="space4" width="100%" justifyContent="center">

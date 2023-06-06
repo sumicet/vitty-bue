@@ -1,10 +1,10 @@
-import { AnimateInView, AnimateInViewItem, Vault } from '@/components';
-import { Button, SimpleGrid, Text, VStack } from '@chakra-ui/react';
+import { AnimateInView, AnimateInViewItem, AnimatedButton, VaultCard } from '@/components';
+import { SimpleGrid, Text, VStack } from '@chakra-ui/react';
 import { Balancer } from 'react-wrap-balancer';
 import { VaultComingSoon } from './VaultComingSoon';
 import { Link } from 'react-router-dom';
 import { Stat } from './Stat';
-import { motion } from 'framer-motion';
+import { LayoutGroup, motion } from 'framer-motion';
 import { useAccount } from 'wagmi';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 
@@ -44,47 +44,57 @@ export function Home() {
                 </SimpleGrid>
             </VStack>
             <VStack spacing={{ base: 'space16', sm: 'space20' }}>
-                {isConnected ? (
-                    <Button as={Link} to="/deposit">
-                        Deposit NFT
-                    </Button>
-                ) : (
-                    <Button onClick={openConnectModal}>Deposit NFT</Button>
-                )}
+                <LayoutGroup>
+                    {isConnected ? (
+                        // @ts-ignore TODO: fix this
+                        <AnimatedButton as={Link} to="/deposit">
+                            Deposit NFT
+                        </AnimatedButton>
+                    ) : (
+                        <AnimatedButton onClick={openConnectModal}>Connect wallet</AnimatedButton>
+                    )}
+                </LayoutGroup>
                 <Balancer>
                     <Text variant="body2">Join the world’s first home staking protocol.</Text>
                 </Balancer>
             </VStack>
             <VStack width="100%" spacing={{ base: 'space26', sm: 'space70' }}>
                 <Text variant="h3">Vaults</Text>
-                <VStack
-                    as={AnimateInView}
-                    width="100%"
-                    spacing={{ base: 'space16', sm: 'space20' }}
-                >
-                    <AnimateInViewItem width="100%">
-                        <Vault
-                            name="V1"
-                            image="https://ih1.redbubble.net/image.1744010751.0122/flat,750x1000,075,f.jpg"
-                            rateSchedule="Fixed"
-                            interestRate="3%"
-                            loansAvailable="$1,961,613.00"
-                            loansIssued="3,038,387 KUSD"
-                        />
-                    </AnimateInViewItem>
-                    <AnimateInViewItem width="100%">
-                        <Vault
-                            name="V1"
-                            image="https://ih1.redbubble.net/image.1744010751.0122/flat,750x1000,075,f.jpg"
-                            rateSchedule="Fixed"
-                            interestRate="3%"
-                            loansAvailable="$1,961,613.00"
-                            loansIssued="3,038,387 KUSD"
-                        />
-                    </AnimateInViewItem>
-                    <AnimateInViewItem width="100%">
-                        <VaultComingSoon />
-                    </AnimateInViewItem>
+                <VStack spacing={{ base: 'space16', sm: 'space20' }} width="100%">
+                    <SimpleGrid
+                        as={AnimateInView}
+                        width="100%"
+                        minChildWidth={{ base: 350, xl: '100%' }}
+                        gap={{ base: 'space16', sm: 'space20' }}
+                    >
+                        <AnimateInViewItem width="100%">
+                            <VaultCard
+                                name="V1"
+                                image="https://ih1.redbubble.net/image.1744010751.0122/flat,750x1000,075,f.jpg"
+                                rateSchedule="Fixed"
+                                interestRate="3%"
+                                loansAvailable="$1,961,613.00"
+                                loansIssued="3,038,387 KUSD"
+                                size={{ base: 'small', xl: 'medium' }}
+                            />
+                        </AnimateInViewItem>
+                        <AnimateInViewItem width="100%">
+                            <VaultCard
+                                name="V1"
+                                image="https://ih1.redbubble.net/image.1744010751.0122/flat,750x1000,075,f.jpg"
+                                rateSchedule="Fixed"
+                                interestRate="3%"
+                                loansAvailable="$1,961,613.00"
+                                loansIssued="3,038,387 KUSD"
+                                size={{ base: 'small', xl: 'medium' }}
+                            />
+                        </AnimateInViewItem>
+                    </SimpleGrid>
+                    <AnimateInView width="100%">
+                        <AnimateInViewItem custom={3} width="100%">
+                            <VaultComingSoon />
+                        </AnimateInViewItem>
+                    </AnimateInView>
                 </VStack>
             </VStack>
         </VStack>

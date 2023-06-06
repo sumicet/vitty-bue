@@ -1,5 +1,5 @@
 import { Icon, Image } from '@/components';
-import { Box, Button, HStack, Text, useColorMode } from '@chakra-ui/react';
+import { Box, Button, Center, HStack, Text, useColorMode } from '@chakra-ui/react';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 import { useAccount, useDisconnect } from 'wagmi';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
@@ -17,7 +17,7 @@ export function Header() {
     const { colorMode, setColorMode } = useColorMode();
 
     return (
-        <Box paddingX={{ base: 'space16', sm: 'space30' }} width="100%">
+        <Center paddingX={{ base: 'space16', sm: 'space30' }} width="100%">
             <HStack
                 justifyContent="space-between"
                 spacing="space26"
@@ -74,6 +74,6 @@ export function Header() {
                     </Box>
                 </HStack>
             </HStack>
-        </Box>
+        </Center    >
     );
 }

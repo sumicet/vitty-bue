@@ -1,13 +1,13 @@
 import { Box, Center, Divider, SimpleGrid, Stack, Text, VStack } from '@chakra-ui/react';
 import logo from '../assets/images/logo.png';
-import { Image } from '@/components';
+import { BlurryCircle, Image } from '@/components';
 import { Balancer } from 'react-wrap-balancer';
 import { Link } from 'react-router-dom';
 import { animations } from '@/theme';
 
 function Section({ title, elements }: { title: string; elements: string[] }) {
     return (
-        <VStack spacing="space4" alignItems="flex-start">
+        <VStack spacing="space4" alignItems={{ base: 'center', lg: 'flex-start' }}>
             <Box as={Link} to={`/${title}`} role="group" paddingY="space8">
                 <Text variant="body1Bold" _groupHover={{ _after: animations._afterLine }}>
                     {title}
@@ -85,15 +85,19 @@ export function Footer() {
                 >
                     <VStack
                         spacing="space16"
-                        alignItems="flex-start"
+                        alignItems={{ base: 'center', lg: 'flex-start' }}
                         width={{ base: '100%', lg: 'auto' }}
                     >
                         <VStack spacing="space4" alignItems="flex-start">
                             <Image src={logo} boxSize={38} objectFit="contain" />
                             <Text variant="body1Bold">Klasma Labs</Text>
                         </VStack>
-                        <Balancer ratio={0.5}>
-                            <Text variant="body2" maxWidth={{ base: 'auto', lg: 250 }}>
+                        <Balancer>
+                            <Text
+                                variant="body2"
+                                maxWidth={{ base: 'auto', lg: 400 }}
+                                textAlign={{ base: 'center', lg: 'start' }}
+                            >
                                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                                 nisi ut aliquip ex ea commodo consequat.
                             </Text>
@@ -101,7 +105,7 @@ export function Footer() {
                     </VStack>
                     <SimpleGrid
                         justifyContent="space-between"
-                        gap={{ base: 'space30', sm: 'space40', md: 'space48', lg: 'space64' }}
+                        gap="space30"
                         minChildWidth={150}
                         width="100%"
                     >
@@ -111,6 +115,8 @@ export function Footer() {
                     </SimpleGrid>
                 </Stack>
             </VStack>
+            <BlurryCircle bgColor="sunset" left="25%" bottom={0} transform="translateY(50%)" />
+            <BlurryCircle bgColor="success" right="25%" bottom={0} transform="translateY(50%)" />
         </Center>
     );
 }

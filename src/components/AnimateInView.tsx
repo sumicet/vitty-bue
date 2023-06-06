@@ -25,7 +25,7 @@ export function AnimateInView({ children, ...rest }: BoxProps & { children: Reac
     const _children = Children.map(children, (child, index) =>
         cloneElement(child, {
             ...(child?.props || {}),
-            custom: index + 1,
+            custom: child?.props?.custom ?? index + 1,
         })
     );
 

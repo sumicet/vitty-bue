@@ -6,6 +6,7 @@ import { sizes } from './sizes';
 import { radii } from './radii';
 import { breakpoints } from './breakpoints';
 import { shadows } from './shadows';
+import { transition } from './transition';
 
 export const foundations = {
     colors,
@@ -16,4 +17,5 @@ export const foundations = {
     radii,
     breakpoints,
     shadows,
+    transition,
 };

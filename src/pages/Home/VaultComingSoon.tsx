@@ -2,15 +2,19 @@ import { Icon } from '@/components';
 import { Center, HStack, Text, useColorModeValue } from '@chakra-ui/react';
 
 export function VaultComingSoon() {
-    const boxShadow = useColorModeValue('vaultLight', 'vaultDark');
     const outlineColor = useColorModeValue('outlineLight', 'outlineDark');
     const color = useColorModeValue('tertiaryLight', 'tertiaryDark');
     const bgColor = useColorModeValue('white', 'black');
 
     return (
         <Center
-            boxShadow={boxShadow}
-            borderRadius="borderRadius"
+            _light={{
+                boxShadow: 'vaultLight',
+            }}
+            _dark={{
+                outlineColor: '#262626',
+            }}
+            borderRadius="radius6"
             outline="1px solid"
             outlineColor={outlineColor}
             width="100%"
