@@ -21,6 +21,7 @@ export function Home() {
                     <MotionText
                         initial={{ opacity: 0.5, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.8 }}
                         transition={{ bounce: 0.1, ease: 'easeInOut' }}
                         maxWidth={972}
                         variant={{ base: 'displaySmall', md: 'display' }}
@@ -51,7 +52,7 @@ export function Home() {
                             Deposit NFT
                         </AnimatedButton>
                     ) : (
-                        <AnimatedButton onClick={openConnectModal}>Connect wallet</AnimatedButton>
+                        <AnimatedButton onClick={openConnectModal}>Deposit NFT</AnimatedButton>
                     )}
                 </LayoutGroup>
                 <Balancer>
