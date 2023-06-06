@@ -5,10 +5,15 @@ import { VaultComingSoon } from './VaultComingSoon';
 import { Link } from 'react-router-dom';
 import { Stat } from './Stat';
 import { motion } from 'framer-motion';
+import { useAccount } from 'wagmi';
+import { useConnectModal } from '@rainbow-me/rainbowkit';
 
 const MotionText = motion(Text);
 
 export function Home() {
+    const { isConnected } = useAccount();
+    const { openConnectModal } = useConnectModal();
+
     return (
         <VStack width="100%" spacing={{ base: 'space64', md: 'space80' }}>
             <VStack width="100%" spacing={{ base: 'space30', md: 'space64' }}>
@@ -39,14 +44,18 @@ export function Home() {
                 </SimpleGrid>
             </VStack>
             <VStack spacing={{ base: 'space16', sm: 'space20' }}>
-                <Button as={Link} to="/deposit">
-                    Deposit NFT
-                </Button>
+                {isConnected ? (
+                    <Button as={Link} to="/deposit">
+                        Deposit NFT
+                    </Button>
+                ) : (
+                    <Button onClick={openConnectModal}>Deposit NFT</Button>
+                )}
                 <Balancer>
                     <Text variant="body2">Join the world’s first home staking protocol.</Text>
                 </Balancer>
             </VStack>
-            <VStack width="100%" spacing={{ base: 'space26', sm: 'space70' }} maxWidth={1196}>
+            <VStack width="100%" spacing={{ base: 'space26', sm: 'space70' }}>
                 <Text variant="h3">Vaults</Text>
                 <VStack
                     as={AnimateInView}

@@ -1,11 +1,11 @@
 import { Layout } from '@/layout';
-import { useOutlet } from 'react-router-dom';
+import { ScrollRestoration, useOutlet } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
+import { Flex } from '@chakra-ui/react';
 
 import '@fontsource-variable/montserrat';
 import '@fontsource-variable/playfair-display';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
-import { Box } from '@chakra-ui/react';
 
 function AnimatedOutlet({ outlet: outletProp }: { outlet?: React.ReactElement | null }) {
     const o = useOutlet();
@@ -14,15 +14,16 @@ function AnimatedOutlet({ outlet: outletProp }: { outlet?: React.ReactElement | 
     return <>{outlet || outletProp}</>;
 }
 
-const MotionBox = motion(Box);
+const MotionFlex = motion(Flex);
 
 // Passing the error as an outlet prop to force it to render inside the layout
 // See Routes.tsx for more details
 function App({ outlet }: { outlet?: React.ReactElement | null }) {
     return (
         <Layout>
+            <ScrollRestoration />
             <AnimatePresence mode="popLayout">
-                <MotionBox
+                <MotionFlex
                     key={location.pathname}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -33,7 +34,7 @@ function App({ outlet }: { outlet?: React.ReactElement | null }) {
                     boxSize="100%"
                 >
                     <AnimatedOutlet outlet={outlet} />
-                </MotionBox>
+                </MotionFlex>
             </AnimatePresence>
         </Layout>
     );

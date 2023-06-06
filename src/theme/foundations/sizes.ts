@@ -4,6 +4,9 @@ import { space } from './space';
 export const sizes = {
     ...space,
     container: {
+        maxWidth: '1196px',
+    },
+    header: {
         maxWidth: '1440px',
     },
 };
