@@ -5,35 +5,36 @@ import '@fontsource-variable/montserrat';
 import '@fontsource-variable/playfair-display';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
+import { Box } from '@chakra-ui/react';
 
-const AnimatedOutlet: React.FC = () => {
+function AnimatedOutlet({ outlet: outletProp }: { outlet?: React.ReactElement | null }) {
     const o = useOutlet();
     const [outlet] = useState(o);
 
-    return <>{outlet}</>;
-};
+    return <>{outlet || outletProp}</>;
+}
+
+const MotionBox = motion(Box);
 
 // Passing the error as an outlet prop to force it to render inside the layout
 // See Routes.tsx for more details
 function App({ outlet }: { outlet?: React.ReactElement | null }) {
     return (
         <Layout>
-            {outlet || (
-                <AnimatePresence mode="popLayout">
-                    <motion.div
-                        key={location.pathname || outlet}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{
-                            duration: 0.5,
-                        }}
-                        style={{ width: '100%', height: '100%' }}
-                    >
-                        <AnimatedOutlet />
-                    </motion.div>
-                </AnimatePresence>
-            )}
+            <AnimatePresence mode="popLayout">
+                <MotionBox
+                    key={location.pathname}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                        duration: 0.5,
+                    }}
+                    boxSize="100%"
+                >
+                    <AnimatedOutlet outlet={outlet} />
+                </MotionBox>
+            </AnimatePresence>
         </Layout>
     );
 }

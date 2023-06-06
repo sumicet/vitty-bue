@@ -9,7 +9,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     return (
         <Box boxSize="100%" bgColor={bgColor}>
             <Background />
-            <VStack width="100%" color={color} position="relative">
+            <VStack boxSize="100%" color={color} position="relative">
                 <Header />
                 <Center boxSize="100%" paddingX={{ base: 'space16', sm: 'space30' }}>
                     {/* measure screen and add minHeight here */}
