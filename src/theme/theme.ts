@@ -4,7 +4,7 @@ import { foundations } from './foundations';
 
 const config: ThemeConfig = {
     useSystemColorMode: true,
-    initialColorMode: 'system',
+    initialColorMode: 'light',
     cssVarPrefix: 'vitty-bue',
 };
 
