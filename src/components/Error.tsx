@@ -1,7 +1,7 @@
 import { Button, Center, Icon, Text, VStack } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { Balancer } from 'react-wrap-balancer';
-import { VscBracketError, VscErrorSmall } from 'react-icons/vsc';
+import { VscBracketError } from 'react-icons/vsc';
 
 export function Error() {
     return (

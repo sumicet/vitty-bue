@@ -17,10 +17,10 @@ export const Divider = defineStyleConfig({
         }
     },
     variants: {
-        simple: (props) => ({
+        simple: {
             bg: 'sunset',
             opacity: 0.2,
-        }),
+        },
     },
     defaultProps: {
         variant: 'simple',

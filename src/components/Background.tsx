@@ -1,4 +1,4 @@
-import { Box, Center, Circle } from '@chakra-ui/react';
+import { Box, Center } from '@chakra-ui/react';
 import { BlurryCircle } from './BlurryCircle';
 
 export function Background() {

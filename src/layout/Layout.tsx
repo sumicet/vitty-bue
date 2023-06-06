@@ -1,4 +1,4 @@
-import { Box, Center, Flex, VStack, useColorModeValue } from '@chakra-ui/react';
+import { Center, Flex, VStack, useColorModeValue } from '@chakra-ui/react';
 import { Header } from './Header';
 import { Background } from '@/components';
 import { Footer } from './Footer';
