@@ -83,4 +83,11 @@ export const textStyles = {
         fontSize: '10px',
         lineHeight: '12px',
     },
+    body3Bold: {
+        fontFamily: 'montserrat',
+        fontStyle: 'normal',
+        fontWeight: 600,
+        fontSize: '10px',
+        lineHeight: '12px',
+    },
 };

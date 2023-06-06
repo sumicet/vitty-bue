@@ -1,23 +1,8 @@
-import { Image, Vault } from '@/components';
-import {
-    Button,
-    Flex,
-    HStack,
-    SimpleGrid,
-    Stack,
-    Table,
-    TableCaption,
-    TableContainer,
-    Tbody,
-    Td,
-    Text,
-    Tfoot,
-    Th,
-    Thead,
-    Tr,
-    VStack,
-} from '@chakra-ui/react';
+import { Vault } from '@/components';
+import { Button, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 import { Balancer } from 'react-wrap-balancer';
+import { VaultComingSoon } from './VaultComingSoon';
+import { Link } from 'react-router-dom';
 
 export function Home() {
     return (
@@ -52,14 +37,34 @@ export function Home() {
                 </SimpleGrid>
             </VStack>
             <VStack spacing={{ base: 'space16', sm: 'space20' }}>
-                <Button>Deposit NFT</Button>
+                <Button as={Link} to="/deposit">
+                    Deposit NFT
+                </Button>
                 <Balancer>
                     <Text variant="body2">Join the world’s first home staking protocol.</Text>
                 </Balancer>
             </VStack>
-            <VStack width="100%" spacing={{ base: 'space26', sm: 'space70' }}>
+            <VStack width="100%" spacing={{ base: 'space26', sm: 'space70' }} maxWidth={1196}>
                 <Text variant="h3">Vaults</Text>
-                <Vault />
+                <VStack width="100%" spacing={{ base: 'space16', sm: 'space20' }}>
+                    <Vault
+                        name="V1"
+                        image="https://ih1.redbubble.net/image.1744010751.0122/flat,750x1000,075,f.jpg"
+                        rateSchedule="Fixed"
+                        interestRate="3%"
+                        loansAvailable="$1,961,613.00"
+                        loansIssued="3,038,387 KUSD"
+                    />
+                    <Vault
+                        name="V1"
+                        image="https://ih1.redbubble.net/image.1744010751.0122/flat,750x1000,075,f.jpg"
+                        rateSchedule="Fixed"
+                        interestRate="3%"
+                        loansAvailable="$1,961,613.00"
+                        loansIssued="3,038,387 KUSD"
+                    />
+                    <VaultComingSoon />
+                </VStack>
             </VStack>
         </VStack>
     );

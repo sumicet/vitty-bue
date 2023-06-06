@@ -5,7 +5,6 @@
         "module": "ESNext",
         "moduleResolution": "bundler",
         "allowSyntheticDefaultImports": true,
-        "baseUrl": ".",
         "paths": {
             "@/components": ["src/components"],
             "@/hooks": ["src/hooks"],
@@ -13,7 +12,8 @@
             "@/utils": ["src/utils"],
             "@/types": ["src/types"],
             "@/layout": ["src/layout"],
-            "@/pages": ["src/pages"]
+            "@/pages": ["src/pages"],
+            "@/web3": ["src/web3"]
         }
     },
     "include": ["vite.config.ts"]
