@@ -14,7 +14,13 @@ import { ChakraBaseProvider } from '@chakra-ui/react';
 createRoot(document.getElementById('root') as HTMLElement).render(
     <StrictMode>
         <WagmiConfig config={wagmiConfig}>
-            <RainbowKitProvider chains={chains}>
+            <RainbowKitProvider
+                chains={chains}
+                modalSize="compact"
+                appInfo={{
+                    appName: 'Vitty Bue',
+                }}
+            >
                 <ChakraBaseProvider theme={theme}>
                     <Routes />
                 </ChakraBaseProvider>

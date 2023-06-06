@@ -5,6 +5,7 @@ export function VaultComingSoon() {
     const boxShadow = useColorModeValue('vaultLight', 'vaultDark');
     const outlineColor = useColorModeValue('outlineLight', 'outlineDark');
     const color = useColorModeValue('tertiaryLight', 'tertiaryDark');
+    const bgColor = useColorModeValue('white', 'black');
 
     return (
         <Center
@@ -15,6 +16,7 @@ export function VaultComingSoon() {
             width="100%"
             height={100}
             color={color}
+            bgColor={bgColor}
         >
             <HStack spacing="space6">
                 <Text variant="h5">More coming soon</Text>
