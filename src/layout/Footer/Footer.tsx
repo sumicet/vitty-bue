@@ -50,6 +50,7 @@ export function Footer() {
                 width="100%"
             >
                 <Divider />
+
                 <Stack
                     direction={{ base: 'column', lg: 'row' }}
                     justifyContent="space-between"
@@ -66,6 +67,7 @@ export function Footer() {
                             <Image src={logo} boxSize={38} objectFit="contain" />
                             <Text variant="body1Bold">Klasma Labs</Text>
                         </VStack>
+
                         <Balancer>
                             <Text
                                 variant="body2"
@@ -77,6 +79,7 @@ export function Footer() {
                             </Text>
                         </Balancer>
                     </VStack>
+
                     <SimpleGrid
                         justifyContent="space-between"
                         gap="space30"
@@ -89,6 +92,8 @@ export function Footer() {
                     </SimpleGrid>
                 </Stack>
             </VStack>
+
+            {/* Background circles */}
             <BlurryCircle bgColor="sunset" left="25%" bottom={0} transform="translateY(50%)" />
             <BlurryCircle bgColor="success" right="25%" bottom={0} transform="translateY(50%)" />
         </Center>

@@ -55,6 +55,7 @@ export const textStyles = {
         fontSize: '16px',
         lineHeight: '20px',
     },
+    // Should be defined on Figma as a variable.
     body1Bold: {
         fontFamily: 'montserrat',
         fontStyle: 'normal',
@@ -69,6 +70,7 @@ export const textStyles = {
         fontSize: '12px',
         lineHeight: '15px',
     },
+    // Should be defined on Figma as a variable.
     body2Bold: {
         fontFamily: 'montserrat',
         fontStyle: 'normal',
@@ -83,6 +85,7 @@ export const textStyles = {
         fontSize: '10px',
         lineHeight: '12px',
     },
+    // Should be defined on Figma as a variable.
     body3Bold: {
         fontFamily: 'montserrat',
         fontStyle: 'normal',

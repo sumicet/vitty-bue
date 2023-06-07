@@ -1,5 +1,7 @@
 import { keyframes } from '@chakra-ui/react';
 
+// Frequently used animations.
+
 const grow = keyframes`
     from {
         width: 0%;
@@ -11,6 +13,11 @@ const grow = keyframes`
     }
 `;
 
+/**
+ * A line that grows from left to right.
+ *
+ * Example: `<Component _after={_afterLine} />`.
+ */
 const _afterLine = {
     content: '""',
     position: 'absolute',

@@ -21,7 +21,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     spacing={{ base: 'space40', sm: 'space80' }}
                     boxSize="100%"
                     position="relative"
-                    // TODO: measure screen and add height here
+                    // TODO: measure screen and add height here.
+                    // 100vh is no bueno, safari hates it.
                     minHeight="calc(100vh - 120px)"
                 >
                     <Header />

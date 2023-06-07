@@ -16,8 +16,12 @@ const variants: Variants = {
     },
 };
 
+/**
+ * A button that animates from a circle to a rounded rectangle.
+ */
 export function AnimatedButton(props: ButtonProps) {
     const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+
     return (
         <MotionBox
             initial="offscreen"

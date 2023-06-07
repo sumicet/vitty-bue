@@ -1,5 +1,8 @@
 import { Circle, SquareProps } from '@chakra-ui/react';
 
+/**
+ * A blurry circle used to style the background.
+ */
 export function BlurryCircle(props: SquareProps) {
     return (
         <Circle

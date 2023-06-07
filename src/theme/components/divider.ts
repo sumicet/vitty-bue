@@ -1,7 +1,8 @@
 import { defineStyleConfig } from '@chakra-ui/styled-system';
 
-// https://chakra-ui.com/docs/components/divider/usage
-
+/**
+ * @see https://chakra-ui.com/docs/components/divider/theming
+ */
 export const Divider = defineStyleConfig({
     baseStyle: (props) => {
         if (props.orientation === 'vertical') {

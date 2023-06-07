@@ -8,10 +8,10 @@ export const colors = {
     success: '#62E185',
     lightGray: '#5D7079',
     tertiaryLight: '#7E898E',
-    tertiaryDark: '#817671',
+    tertiaryDark: '#817671', // Not on Figma
     blue: '#0BADF7',
     white: '#FFFFFF', // Not on Figma
     black: '#000000', // Not on Figma
     outlineLight: '#F3F3F3',
-    outlineDark: '#0c0c0c',
+    outlineDark: '#0c0c0c', // Not on Figma
 };

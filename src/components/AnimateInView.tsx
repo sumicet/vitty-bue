@@ -1,6 +1,6 @@
-import { BoxProps, chakra } from '@chakra-ui/react';
+import { HTMLChakraProps, chakra } from '@chakra-ui/react';
 import { Variants, motion } from 'framer-motion';
-import { Children, ReactElement, cloneElement } from 'react';
+import { ReactElement } from 'react';
 
 const MotionSpan = motion(chakra.span);
 
@@ -21,26 +21,29 @@ const variants: Variants = {
     }),
 };
 
-export function AnimateInView({ children, ...rest }: BoxProps & { children: ReactElement }) {
-    const _children = Children.map(children, (child, index) =>
-        cloneElement(child, {
-            ...(child?.props || {}),
-            custom: child?.props?.custom ?? index + 1,
-        })
-    );
-
+/**
+ * A wrapper component that animates its children in when they come into view.
+ *
+ * TODO: Could/should expand this component to be more flexible and customizable
+ * to support other types of "whileInView" animations.
+ */
+export function AnimateInView(props: HTMLChakraProps<'span'> & { children: ReactElement }) {
     return (
         <MotionSpan
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
-            {...rest}
-        >
-            {_children}
-        </MotionSpan>
+            {...props}
+        />
     );
 }
 
-export function AnimateInViewItem(props: BoxProps & { custom?: number }) {
-    return <MotionSpan variants={variants} {...props} />;
+export function AnimateInViewItem({
+    /**
+     * The number which will be multiplied by the delay to create a staggered effect.
+     */
+    custom = 0,
+    ...rest
+}: HTMLChakraProps<'span'> & { custom?: number }) {
+    return <MotionSpan variants={variants} custom={custom} {...rest} />;
 }

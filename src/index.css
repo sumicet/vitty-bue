@@ -19,6 +19,8 @@ body {
     position: relative;
 }
 
+/* This div is the Rainbow kit wrapper. For some unknown reason, it doesn't take
+the full space. */
 #root > div {
     flex: 1;
 }

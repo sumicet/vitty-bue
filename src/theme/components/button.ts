@@ -1,5 +1,8 @@
 import { defineStyleConfig } from '@chakra-ui/system';
 
+/**
+ * @see https://chakra-ui.com/docs/components/button/theming
+ */
 export const Button = defineStyleConfig({
     baseStyle: {
         borderRadius: 'radius25',

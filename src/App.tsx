@@ -18,6 +18,7 @@ const MotionFlex = motion(Flex);
 
 // Passing the error as an outlet prop to force it to render inside the layout
 // See Routes.tsx for more details
+// TODO: I believe this also triggers the header to rerender, should investigate.
 function App({ outlet }: { outlet?: React.ReactElement | null }) {
     return (
         <Layout>

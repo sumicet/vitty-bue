@@ -1,6 +1,6 @@
 import { space } from './space';
 
-// IMPORTANT: Numbers don't work here, use strings
+// IMPORTANT: Numbers don't work here, use strings.
 export const sizes = {
     ...space,
     container: {

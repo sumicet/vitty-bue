@@ -10,8 +10,10 @@ export function Stat({ value, text }: { value: number; text: string }) {
         easing: 'easeOutCubic',
         thousandsSeparator: ',',
     });
+
     return (
         <VStack key={text} alignItems="center" spacing="space4">
+            {/* Css hack to keep the width unchanged as the value counts up. */}
             <Text variant={{ base: 'h3', md: 'h2' }} paddingX="space4" visibility="hidden">
                 {value}
             </Text>

@@ -16,9 +16,9 @@ const transitionDuration = {
     normal: '0.2s',
 };
 
-// CHAKRA-BUG: Write each property separately
-// Eg transitionDuration: 'ultra-fast', transitionEasing: 'ease-in'
-// Writing something like transition 'colors ultra-fast ease-in' won't work
+// CHAKRA-BUG: Write each property separately.
+// Eg transitionDuration: 'ultra-fast', transitionEasing: 'ease-in'.
+// Writing something like transition: 'colors ultra-fast ease-in' won't work.
 export const transition = {
     property: transitionProperty,
     easing: transitionTimingFunction,

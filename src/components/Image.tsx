@@ -3,7 +3,7 @@ import type { ImageProps as ChakraImageProps } from '@chakra-ui/react';
 import { Image as ChakraImage } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
-// 1 pixel
+// The smallest image, 1 pixel.
 const fallbackSrc = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
 
 export type ImageProps = ChakraImageProps;
@@ -46,9 +46,10 @@ export function Image({ src, ...rest }: ImageProps) {
                 onLoad?.(event);
             }}
             initial={{ opacity: 0 }}
-            animate={{
+            whileInView={{
                 opacity: isLoaded ? 1 : 0,
             }}
+            viewport={{ once: true, threshold: 0.8 }}
             transition={{
                 duration: 0.28,
                 ease: 'easeInOut',

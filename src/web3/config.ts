@@ -16,19 +16,27 @@ import {
     walletConnectWallet,
     xdefiWallet,
 } from '@rainbow-me/rainbowkit/wallets';
+import { config } from 'src/config';
+
+/**
+ * @see https://www.rainbowkit.com
+ * @see https://wagmi.sh/react/getting-started
+ */
 
 const { chains, publicClient } = configureChains([polygonMumbai], [publicProvider()]);
-
-const projectId = 'd3fda61340d21aaec06c9bb565df9f79';
 
 const connectors = connectorsForWallets([
     {
         groupName: 'Recommended',
         wallets: [
+            /**
+             * More wallets can be added.
+             * @see https://www.rainbowkit.com/docs/custom-wallet-list.
+             */
             metaMaskWallet({ chains }),
             coinbaseWallet({ appName: 'Vitty Bue', chains }),
-            walletConnectWallet({ projectId, chains }),
-            rainbowWallet({ projectId, chains }),
+            walletConnectWallet({ projectId: config.rainbowKit.projectId, chains }),
+            rainbowWallet({ projectId: config.rainbowKit.projectId, chains }),
             bitskiWallet({
                 chains,
             }),
@@ -57,6 +65,10 @@ const connectors = connectorsForWallets([
     },
 ]);
 
+// The inferred type of wagmiConfig cannot be named without a reference to
+// '../../node_modules/@wagmi/core/dist/index-fc9ab085'. This is likely not
+// portable. A type annotation is necessary.
+// TODO: Remove `any`. Find a way to fix this error, it's probably something related to tsconfig.json.
 const wagmiConfig: any = createConfig({
     autoConnect: true,
     connectors,

@@ -10,11 +10,21 @@ import { AnimatePresence, motion } from 'framer-motion';
 const MotionHStack = motion(HStack);
 const MotionButton = motion(Button);
 
+const motionProps = {
+    initial: { opacity: 0, y: -5 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -5 },
+    transition: { bounce: 0, ease: 'easeInOut' },
+};
+
 export function Header() {
     const { openConnectModal } = useConnectModal();
     const { isConnecting, isConnected, address } = useAccount();
     const { disconnect } = useDisconnect();
     const { colorMode, setColorMode } = useColorMode();
+
+    // TODO: Should extract this to a util function.
+    const formattedAddress = `${address?.slice(0, 5)}...${address?.slice(address.length - 3)}`;
 
     return (
         <Center paddingX={{ base: 'space16', sm: 'space30' }} width="100%">
@@ -29,21 +39,13 @@ export function Header() {
                     <Image src={logo} boxSize={38} />
                     <Text variant="body1Bold">Vitty Bue</Text>
                 </HStack>
+
                 <HStack spacing="space26">
                     <AnimatePresence mode="wait" initial={false}>
                         {isConnected ? (
-                            <MotionHStack
-                                spacing="space8"
-                                initial={{ opacity: 0, y: -5 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -5 }}
-                                transition={{ bounce: 0, ease: 'easeInOut' }}
-                            >
+                            <MotionHStack spacing="space8" {...motionProps}>
                                 <Icon type="wallet" boxSize="space20" color="coral" />
-                                <Text variant="body3Bold">{`${address?.slice(
-                                    0,
-                                    5
-                                )}...${address?.slice(address.length - 3)}`}</Text>
+                                <Text variant="body3Bold">{formattedAddress}</Text>
                                 <Button variant="light" size="wide" onClick={() => disconnect()}>
                                     Disconnect
                                 </Button>
@@ -54,15 +56,13 @@ export function Header() {
                                 size="wide"
                                 onClick={openConnectModal}
                                 isLoading={isConnecting}
-                                initial={{ opacity: 0, y: -5 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -5 }}
-                                transition={{ bounce: 0, ease: 'easeInOut' }}
+                                {...motionProps}
                             >
                                 Connect wallet
                             </MotionButton>
                         )}
                     </AnimatePresence>
+
                     <Box>
                         <DarkModeSwitch
                             checked={colorMode !== 'dark'}
@@ -74,6 +74,6 @@ export function Header() {
                     </Box>
                 </HStack>
             </HStack>
-        </Center    >
+        </Center>
     );
 }
