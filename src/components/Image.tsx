@@ -11,7 +11,7 @@ export type ImageProps = ChakraImageProps;
 const MotionImage = motion(ChakraImage);
 
 /**
- * Wraps Chakra's Image component
+ * Wraps Chakra's Image component.
  */
 export function Image({ src, ...rest }: ImageProps) {
     const [renderedSrc, setRenderedSrc] = useState<ImageProps['src']>(undefined);
